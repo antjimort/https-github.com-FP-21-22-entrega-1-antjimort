@@ -1,4 +1,4 @@
-package fp.dominio.musica;
+package fp.musica;
 
 import java.time.LocalDate;
 
@@ -18,7 +18,7 @@ public record Cancion(String title, String artist, Integer year, Integer duratio
 
 	private void checkTitle() {
 		if (title().equals("")) {
-			throw new IllegalArgumentException("El titulo de la canción no puede estar vacio");
+			throw new IllegalArgumentException("El titulo de la canci??n no puede estar vacio");
 		}
 	}
 
