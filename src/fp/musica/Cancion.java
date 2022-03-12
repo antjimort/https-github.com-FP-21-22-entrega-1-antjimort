@@ -3,6 +3,11 @@ package fp.musica;
 import java.time.LocalDate;
 
 public record Cancion(String title, String artist, Integer year, Integer durationSec, Boolean announcedOnTwitter, LocalDate lastConcert) {
+	/*Con estos atributos en un record, ya tenemos por defeto creados los metodos observadores, 
+	 * el toString, el método .equals() y el método .hashCode()
+	 */
+	
+	//Establecemos el orden natural del tipo Cancion
 	
 	public int compareTo(Cancion c) {
 		Integer r = null;
@@ -16,6 +21,9 @@ public record Cancion(String title, String artist, Integer year, Integer duratio
 		return r;
 	}
 
+	
+	//Funciones lanzadoras de excepciones
+	
 	private void checkTitle() {
 		if (title().equals("")) {
 			throw new IllegalArgumentException("El titulo de la canci??n no puede estar vacio");
