@@ -2,7 +2,8 @@ package fp.musica;
 
 import java.time.LocalDate;
 
-public record Cancion(String title, String artist, Integer year, Integer durationSec, Boolean announcedOnTwitter, LocalDate lastConcert) {
+public record Cancion(String title, String artist, String topGenre, Integer year, Integer likes, Integer dislikes,
+		Integer durationSec, Boolean announcedOnTwitter, LocalDate lastConcert) {
 	/*Con estos atributos en un record, ya tenemos por defeto creados los metodos observadores, 
 	 * el toString, el método .equals() y el método .hashCode()
 	 */
@@ -36,5 +37,14 @@ public record Cancion(String title, String artist, Integer year, Integer duratio
 					+ "mayor o igual a 120 segundos");
 		}
 	}
+	
+	public Double getRatioLikesDislikes() {
+		Double ratio = (Double.parseDouble(likes()))/(Double.parseDouble(dislikes()));
+		return ratio;
+	}
+	
+	
+	
+	
 	
 }
