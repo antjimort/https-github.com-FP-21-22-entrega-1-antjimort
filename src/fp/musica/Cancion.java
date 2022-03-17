@@ -1,21 +1,23 @@
 package fp.musica;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import fp.utiles.Checkers;
 
 public record Cancion(String title, String artist, String topGenre, Integer year, Integer likes, Integer dislikes,
-		Integer durationSec, Boolean announcedOnTwitter, LocalDate lastConcert) {	
+		Integer durationSec, Boolean announcedOnTwitter, LocalDate lastConcert) implements Comparable<Cancion>{	
 	/*Con estos atributos en un record, ya tenemos por defeto creados los metodos observadores, 
-	 * el toString, el metodo .equals() y el método .hashCode()
+	 * el 'toString', el metodo '.equals()' y el método '.hashCode()'
 	 */
 	
+	//Con el siguiente constructor compacto, definiremos las restricciones de los atributos 'title' y 'durationSec':
 	public Cancion {
 		checkTitle(title);
 		checkDurationSec(durationSec);
 	}
 	
-	//Establecemos el orden natural del tipo Cancion
+	//Establecemos el orden natural del tipo Cancion:
 	
 	public int compareTo(Cancion c) {
 		Integer r = null;
@@ -29,8 +31,7 @@ public record Cancion(String title, String artist, String topGenre, Integer year
 		return r;
 	}
 
-	
-	//Funciones lanzadoras de excepciones
+	//Funciones lanzadoras de excepciones:
 	
 	public void checkTitle(String title) {
 		if (title.equals("")) {
@@ -45,6 +46,9 @@ public record Cancion(String title, String artist, String topGenre, Integer year
 		}
 	}
 	
+	//PROPIEDADES DERIVADAS
+	//Con el siguiente metodo crearemos una propiedad derivada con la que calcularemos un ratio entre los atributos 'likes' y 'dislikes':	
+	
 	public Double getRatioLikesDislikes() {
 		String likes = Integer.toString(this.likes());
 		String dislikes = Integer.toString(this.dislikes());
@@ -53,6 +57,10 @@ public record Cancion(String title, String artist, String topGenre, Integer year
 		return (double) ratio;
 	}
 	
+	
+	/* Crearemos a continuacion un metodo con el que analizaremos la antiguedad de un objeto tipo Cancion segun su propiedad 'year', 
+	 * lo que hará devolver por pantalla valores del Enumerado Antiguedad
+	 */
 	public Antiguedad getAntiguedad() {
 		Antiguedad r = null;
 		if (year().equals(2015) && year() <= 2016) {
@@ -64,11 +72,5 @@ public record Cancion(String title, String artist, String topGenre, Integer year
 		}
 		return r;
 	}
-	
-
-	
-	
-	
-	
 	
 }
