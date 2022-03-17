@@ -16,7 +16,6 @@ public class TestCancion {
 		Cancion c1 = new Cancion("Believer", "Imagine Dragons", "modern rock", 2017, 125, 78, 204, true, LocalDate.of(2020, 07, 02));		
 		System.out.println(c1);
 		
-		
 		//Test equals.
 		equalsTest();
 		
@@ -35,7 +34,7 @@ public class TestCancion {
 		
 	}
 	
-	//Aqui crearemos la funcion equalsTest para hacer un test con el metodo equals de dos objetos tipo Cancion, el cual probaremos arriba.
+	//Aqui crearemos la funcion 'equalsTest' para hacer un test con el metodo '.equals()' de dos objetos tipo Cancion, el cual probaremos arriba.
 	public static void equalsTest() {
 			Cancion c = new Cancion("Perfect", "Ed Sheeran", "pop", 2017, 95, 45, 263, false, LocalDate.of(2019, 10, 10));
 			Cancion k = new Cancion("Perfect", "Ed Sheeran", "pop", 2017, 95, 45, 263, false, LocalDate.of(2019, 10, 10));

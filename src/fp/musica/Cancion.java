@@ -1,8 +1,6 @@
 package fp.musica;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 import fp.utiles.Checkers;
 
 public record Cancion(String title, String artist, String topGenre, Integer year, Integer likes, Integer dislikes,
