@@ -1,5 +1,5 @@
 # Proyecto del Segundo Cuatrimestre Fundamentos de Programación (Curso  \<21\>/\<22\>)
-Autor/a: \<Antonio Jiménez Ortega\>   uvus:\<antjimort\>
+Autor/a: \<Antonio Jiménez Ortega\>   uvus:\<antjimor\>
 
 En este proyecto vamos a trabajar con un dataset que contiene 97 canciones en total de Spotify del año 2019, cada cual con sus respectivos atributos.
 
