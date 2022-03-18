@@ -1,6 +1,8 @@
 package fp.musica;
 
 import java.time.LocalDate;
+import java.util.Objects;
+
 import fp.utiles.Checkers;
 
 public record Cancion(String title, String artist, String topGenre, Integer year, Integer likes, Integer dislikes,
@@ -25,6 +27,8 @@ public record Cancion(String title, String artist, String topGenre, Integer year
 		r = title().compareTo(c.title());
 		if (r == 0) {
 			r = artist().compareTo(c.artist());
+		} else if (r == 0){
+			r = topGenre().compareTo(c.topGenre());
 		}
 		return r;
 	}
@@ -70,5 +74,29 @@ public record Cancion(String title, String artist, String topGenre, Integer year
 		}
 		return r;
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(announcedOnTwitter, artist, dislikes, durationSec, lastConcert, likes, title, topGenre,
+				year);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cancion other = (Cancion) obj;
+		return Objects.equals(announcedOnTwitter, other.announcedOnTwitter) && Objects.equals(artist, other.artist)
+				&& Objects.equals(dislikes, other.dislikes) && Objects.equals(durationSec, other.durationSec)
+				&& Objects.equals(lastConcert, other.lastConcert) && Objects.equals(likes, other.likes)
+				&& Objects.equals(title, other.title) && Objects.equals(topGenre, other.topGenre)
+				&& Objects.equals(year, other.year);
+	}
+	
+	
 	
 }
