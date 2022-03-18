@@ -33,7 +33,7 @@ public record Cancion(String title, String artist, String topGenre, Integer year
 		return r;
 	}
 
-	//Funciones lanzadoras de excepciones:
+	//Funciones restrictivas:
 	
 	public void checkTitle(String title) {
 		if (title.equals("")) {
@@ -48,7 +48,7 @@ public record Cancion(String title, String artist, String topGenre, Integer year
 		}
 	}
 	
-	//PROPIEDADES DERIVADAS
+	//PROPIEDADES DERIVADAS.
 	//Con el siguiente metodo crearemos una propiedad derivada con la que calcularemos un ratio entre los atributos 'likes' y 'dislikes':	
 	
 	public Double getRatioLikesDislikes() {
@@ -58,7 +58,7 @@ public record Cancion(String title, String artist, String topGenre, Integer year
 		Double ratio = (Double.parseDouble(likes))/(Double.parseDouble(dislikes));
 		return (double) ratio;
 	}
-	
+
 	
 	/* Crearemos a continuacion un metodo con el que analizaremos la antiguedad de un objeto tipo Cancion segun su propiedad 'year', 
 	 * lo que hará devolver por pantalla valores del Enumerado Antiguedad
